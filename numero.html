@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Número Sorteado</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dokdo&family=Honk&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Dokdo&family=Honk&display=swap');
+
+    body {
+        color: #fff;
+        background: url(pexels-wyxina-tresse-15020716.jpg);
+        font-family: "Creepster", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        padding-top: 265px;
+        font-size: 26px;
+        }
+        h1 {
+        font-family: "Dokdo", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        }
+        button{
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            color: #fff;
+            border: none;
+        }
+            .bnt{
+            width: 220px;
+            height: 50px;
+            border: none;
+            outline: none;
+            color: #fff;
+            background: linear-gradient( to right,#93c4ec,#fbc7eb);
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+}
+
+.bnt:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.bnt:active {
+    color: #000e0c
+}
+
+.bnt:active:after {
+    background: transparent;
+}
+
+.bnt:hover:before {
+    opacity: 1;
+}
+
+.bnt:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( );
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes bnt {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+@media  (min-width: 768px) {
+    body{
+        font-size: 1em;
+        text-align: center;
+        padding-bottom: 145px;
+    }
+}
+</style>
+<body>
+    <h1>Número Sorteado🥳</h1>
+    <p>Clique no botão para gerar um número aleatório entre 1 e 100.</p>
+    <button class="bnt" type="button" onclick="gerarNumero()">Gerar número</button>
+    <p id="resultado"></p>
+
+    <script>
+        function gerarNumero() {
+            var min = 1;
+            var max = 100;
+            var numeroAleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
+            document.getElementById("resultado").innerHTML = "Número Sorteado: " + numeroAleatorio;
+        }
+    </script>
+</body>
+</html>
